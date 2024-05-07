@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Quote of the day</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+    <body>
+      <nav>
+        <div class="logo">Navbar</div>
+        <ul class="menu">
+          <li><a href="">Home</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Services</a></li>
+          <li><a href="">Contact</a></li>
+        </ul>
+        <div class="Search">
+          <form action="https://www.google.com/search" method="GET" target="_blank">
+            <input type="text" name="q" placeholder="Search Google...">
+            <input type="submit" value="Search">
+        </form>
+        </div>
+      </nav>
+     <div class="quote-box">
+        <h2>Quote of the day</h2>
+        <blockquote id="quote">Loading...</blockquote>
+        <span id="author">Loading...</span>
+        <div>
+            <button onclick="getquote(api_url)">New Quote</button>
+            <button onclick="tweet()"><img src="twiit.png"> Tweet</button>
+        </div>
+     </div>
+     <script>
+        const quote = document.getElementById("quote");
+        const author = document.getElementById("author");
+        const api_url = "https://api.quotable.io/random";
+        async function getquote(url) {
+            const response = await fetch(url);
+            var data = await response.json();
+            
+            quote.innerHTML = data.content;
+            author.innerHTML = data.author;
+        }
+        getquote(api_url);
+        function tweet(){
+            window.open("https://twitter.com/intent/tweet?text=" + quote.innerHTML + "---- by " + author.innerHTML,   "Tweet Window", "width=600, height=300");
+
+        }
+     </script>
+     <footer class=" text-white pt-5 pb-4 footer">
+      <div class="container text-center text-md-left">
+      <div class="row text-center text-md-left">
+        <div class="col-mid-3 col-lg-3 col-xl-3 mx-auto mt-3">
+          <h5 class="text-uppercase mb-4 font-weight-bold text-warning">PhrasePlace</h5>
+          <P>
+            Welcome to our serene corner of the internet, where eloquent words and profound thoughts intertwine. Amidst the whispers of wisdom and the melodies of inspiration, our curated collection of quotes awaits, offering solace and guidance in a noisy world. Each quote is a beacon of light, illuminating paths of introspection and offering solace in moments of uncertainty.</P>
+
+        </div>
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+          <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Useful Links</h5>
+          <p>
+            <a href ="#" class="text-white" style="text-decoration: none;">My Account</a>
+          </p>
+          <p>
+            <a href ="#" class="text-white" style="text-decoration: none;">Terms of Services</a>
+          </p>
+          <p>
+            <a href ="#" class="text-white" style="text-decoration: none;">Privacy Policy</a>
+          </p>
+          <p>
+            <a href ="#" class="text-white" style="text-decoration: none;">Authors</a>
+          </p>
+        </div>
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+          <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Contact</h5>
+          <p>
+            <i class="fas fa-home mr-3"></i>  Westbengal, Kol-71223, India
+          </p>
+          <p>
+            <i class="fas fa-envelope mr-3"></i>  phraseplace986@gmail.com
+          </p>
+          <p>
+            <i class="fas fa-phone mr-3"></i> +91 9123458327
+          </p>
+        </div>
+      </div>
+      <hr class="mb-4">
+      <div class="row align-items-center">
+<div class="col-md-7 col-lg-8">
+<p>Copyright @2020 All rights reserved by:
+  <a href="#" style="text-decoration: none;">
+    <strong class="text-warning">PhrasePlace</strong>
+  </p></a>
+</div>
+<div class="col-md-5 col-lg-4">
+<div class="text-center text-md-right">
+<ul class="list-unstyled list-inline"><
+<li class="list-inline-item">
+  <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-facebook"></i></a>
+</li>
+<li class="list-inline-item">
+  <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-twitter"></i></a>
+</li>
+<li class="list-inline-item">
+  <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-google-plus"></i></a>
+</li>
+<li class="list-inline-item">
+  <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-linkedin-in"></i></a>
+</li>
+<li class="list-inline-item">
+  <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-youtube"></i></a>
+</li>
+</ul>
+</div>
+</div>
+      </div>
+      </div>
+     </footer>
+          </body>
+</html>
